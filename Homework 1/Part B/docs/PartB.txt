@@ -1,0 +1,46 @@
+1
+HW01
+Part B
+This assignment is intended to familiarize you with the basic concepts of how to use:
+ The Python language
+ OpenCV
+ Matplotlib
+ Jupyter Notebooks
+ Anaconda
+The tasks you need to perform are the following:
+1) Write a Python program that processes images through OpenCV and plots results in a Jupyter
+Notebook using the Matplotlib library. Your program needs to:
+a) Load an image using OpenCV, convert it from BGR to an RGB color format, and plot it
+using Matplotlib
+b) Print (i) the number of pixels and (ii) the height, width, and number of channels of the
+loaded image
+c) Isolate the information of the Red, Green, and Blue channels of the image and plot them
+in the Jupyter Notebook using Matplotlib
+d) Calculate the unnormalized histograms of the Red, Green, and Blue channels of the
+image and plot them using Matplotlib
+e) Convert the image to grayscale and plot it in the Jupyter Notebook using Matplotlib
+f) Print (i) the number of pixels and (ii) the height, width, and number of channels of the
+grayscale image
+g) Calculate the unnormalized histogram of the grayscale image and plot it using Matplotlib
+h) Use a binary threshold on your grayscale image and plot the result in the Jupyter
+Notebook using Matplotlib
+i) Calculate the unnormalized histogram of the thresholded image and plot it using
+Matplotlib
+j) Include a commentary section in your Jupyter Notebook where you answer the following
+questions
+i) What are the differences you observe in the histograms for the different color
+channels?
+ii) Converting an image to grayscale is the same operation as isolating a color
+channel? Yes/No and why?
+iii) What are the differences you observe in the histograms for the grayscale image
+and the thresholded image?2
+Image to be used in your assignment:
+References
+1. How to install Anaconda: https://docs.anaconda.com/anaconda/install/index.html
+2. Image Thresholding: https://stackabuse.com/introduction-to-image-processing-in-python-with-
+opencv/
+3. How to calculate image histograms using OpenCV:
+https://www.pyimagesearch.com/2021/04/28/opencv-image-histograms-cv2-calchist/
+4. "Cat on the sofa" image by sushiraider is licensed with CC BY-NC-SA 2.0. To view a copy of this
+license, visit https://creativecommons.org/licenses/by-nc-sa/2.0/3
+Appendix: Your code output should resemble the following:
