@@ -1,0 +1,27 @@
+HW1-ICA
+Part A
+This assignment is intended to familiarize you with the basic concepts of how to use:
+● The Python language
+● OpenCV
+● Matplotlib
+● Jupyter Notebooks
+● Anaconda
+The tasks you need to perform are the following:
+1) Install Anaconda in your system. (You can install anaconda in either Windows or Linux, however
+in this class we assume that you will be using Linux)
+2) In Anaconda install
+a) Jupyter Notebooks
+b) OpenCV
+c) Matplotlib
+d) Load an image using OpenCV convert it from BGR to an RGB color format and plot it
+using Matplotlib
+Image to be used in your assignment:
+References:
+1. How to install Anaconda:
+https://docs.anaconda.com/anaconda/install/index.html
+2. Image Thresholding:
+https://stackabuse.com/introduction-to-image-processing-in-python-with-opencv/
+3. How to calculate image histograms using OpenCV:
+https://www.pyimagesearch.com/2021/04/28/opencv-image-histograms-cv2-calchist/
+4. "Cat on the sofa" image by sushiraider is licensed with CC BY-NC-SA 2.0. To view a copy of this
+license, visit https://creativecommons.org/licenses/by-nc-sa/2.0/
