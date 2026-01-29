@@ -1,0 +1,36 @@
+Homework 02
+Learning how to set up your environment for LLM projects
+Description
+In this assignment, you will learn how to set up your environment for LLM projects.
+Tasks
+Part A:
+1. Create a Python virtual environment using Anaconda and name it “myenv”
+2. Download and install VSCode
+3. Download and install Ollama
+4. Download and install OpenCV in your Python Virtual Environment
+5. Make sure you use the “myenv” virtual environment from VSCode
+6. Create a Python program that loads an image with OpenCV and plots it within
+a Jupyter Notebook (resolve any problems that may come up with correct color
+display)
+Part B:
+7. Use the Langchain library to write a program that connects to ollama and asks
+the Mistral LLM [3] what the current time is.
+8. Did the LLM provide a correct response? If it did not, why did this happen, and
+how can you rectify the issue? (You don't need to add code, but you need to
+explain a potential solution in the PDF report conceptually, which you will submit
+along with your code.)
+Submission Guidelines
+1. For Students
+a. Upload to Teams a PDF of your notebook along with the
+respective .ipynb files (name: HW02-ICA-Report-Firstname-
+Lastname.pdf)
+2. For CBL SWE members
+a. Please post a PDF of your notebook along with the respective .ipynb
+files (name: HW02-ICA-Report-Firstname-Lastname.pdf) on your
+Monday Board and email it to CS and Dr.K.
+3. If you make use of LLMs or Coding Agents, you need to acknowledge this
+information in your report, also specifying the models used.
+References
+1. Ollama, https://ollama.com
+2. VSCode, https://code.visualstudio.com
+3. MIstral model for Ollama, https://ollama.com/library/mistral
