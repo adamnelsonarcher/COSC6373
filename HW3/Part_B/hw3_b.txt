@@ -1,0 +1,33 @@
+HW03-ICA-Part B
+Image classification with Convolutional Neural Networks and Transfer Learning
+Overview
+A Convolutional Neural Network (CNN) is a Deep Learning algorithm that takes an input image,
+assigns importance (learnable weights and biases) to objects in the image, and can differentiate
+one from the other.
+Description
+In this assignment, we aim to use transfer learning with a pre-trained ResNet50 CNN model trained
+on the ImageNet dataset [1] (which spans 1,000 object classes and contains 1,281,167 training
+images) to classify images of horses and camels using the dataset provided in [2]. More
+specifically, fine-tuning refers to the practice of "unfreezing" a few of the top layers of a frozen
+model base and jointly training the newly added classifier layers and the base model's last layers.
+This allows us to "fine-tune" the higher-order feature representations in the base model to make
+them more relevant to the specific task we retrain the model for.
+The specific steps for this task for Part B are:
+1. Load the pre-trained base model and weights.
+2. Train the model using weight fine-tuning.
+3. Evaluate the performance of the model and report the confusion matrix.
+4. Which layers did you keep and which did you replace? What is the best architecture
+that you found?
+Submission Guidelines
+You need to submit:
+1. Submit a Jupyter notebook file and the pdf of your solution on TEAMs (name:
+COSC6373-HW03-Report-Lastname.pdf) with your output and comments
+References
+1. “ImageNet Dataset”,
+https://www.image-net.org/download.php
+2. “Horses vs Camels Dataset”,
+https://www.kaggle.com/akrsnv/horses-and-camels
+3. "Transfer learning and fine-tuning with Tensorflow",
+https://www.tensorflow.org/tutorials/images/transfer_learning
+4. "Transfer learning and fine-tuning with Keras",
+https://keras.io/guides/transfer_learning/
