@@ -1,0 +1,36 @@
+HW04-ICA– Part A 
+PyTorch Tutorial - Detecting Handwritten Digits with CNNs 
+ 
+ 
+Description 
+The MNIST dataset is an acronym that stands for the Modified National Institute of Standards and 
+Technology dataset. It is a dataset of 60,000 small, square 28×28-pixel grayscale images of hand-
+written single digits between 0 and 9. The task for this HW is to classify a given image of a hand-
+written digit into one of 10 classes representing integer values from 0 to 9, inclusive. In this as-
+signment, you need  to create a simple CNN from scratch using the deep  learning framework of 
+your choice (PyTorch) to perform classification on the MNIST dataset. 
+ 
+Tasks 
+The specific tasks for Part A are: 
+• Write the code needed to load the MNIST dataset into a PyTorch-based CNN model. 
+• Create a base CNN model (Convolutional Layer -> MaxPooling -> Flatten -> Dropout -> 
+Fully Connected layer). 
+ 
+Submission Guidelines 
+• You need to submit your code and report in Teams (both as an .ipynb and a .pdf file) 
+• Upload any .zip file or folder if your code refers to the paths of those files. 
+• A pdf of your report (name: 6373S26-HW04-Report-Lastname.pdf) with your output and 
+comments. 
+ 
+Grading 
+• Code documentation and readability (10%): A brief documentation, describing the most 
+important tasks of each class/module in the source code in your own words. Use of com-
+ments, proper indentation, clear notations, simplicity 
+• Code Completeness (80%): Working code on GitHub or Jupiter Notebook. 
+• Report (10%) 
+ 
+ 
+References 
+• “Building simple Neural Networks using Pytorch (NN, CNN) for MNIST dataset”, 
+https://medium.com/@bpoyeka1/building-simple-neural-networks-nn-cnn-using-pytorch-
+for-mnist-dataset-31e459d17788 
