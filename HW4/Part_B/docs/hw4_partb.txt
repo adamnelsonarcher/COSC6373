@@ -1,0 +1,37 @@
+HW04 – Part B
+PyTorch Tutorial - Detecting Handwritten Digits with CNNs
+Description
+The MNIST dataset is an acronym that stands for the Modified National Institute of Standards and
+Technology dataset. It is a dataset of 60,000 small, square 28×28-pixel grayscale images of hand-
+written single digits between 0 and 9. The task for this HW is to classify a given image of a hand-
+written digit into one of 10 classes representing integer values from 0 to 9, inclusive. In this as-
+signment, you need to create a simple CNN from scratch using the deep learning framework of
+your choice (PyTorch) to perform classification on the MNIST dataset.
+Tasks
+The specific tasks for Part B are:
+• Train the model you created in Part A for 10 epochs using 10% for validation
+(batch_size=32, optimizer=Adam, dropout=0.5, activation=relu).
+• Evaluate the model’s performance and report the confusion matrix and test accuracy.
+• Update your base model by adding more layers (e.g., x2, x3 Conv) and report the perfor-
+mance (confusion matrix and accuracy). Also, try using different batch sizes (i.e., 64, 128,
+256) and activation functions, and comment on your observations.
+• What is the difference between epoch and batch? How does batch size affect the training
+time and performance?
+• What is the purpose of the max pooling layer?
+• What is the purpose of a validation set in your dataset?
+Submission Guidelines
+• You need to submit your code and report in Teams (both as an .ipynb and a .pdf file)
+• Upload any .zip file or folder if your code refers to the paths of those files.
+• A pdf of your report (name: COSC6373S26-HW04-Report-Firstname-Lastname.pdf)
+with your output and comments
+Grading
+• Code documentation and readability (10%): A brief documentation, describing the most
+important tasks of each class/module in the source code in your own words. Use of com-
+ments, proper indentation, clear notations, simplicity
+• Code Completeness (80%): Working code on a Jupiter Notebook.
+• Report (10%)
+References
+2
+• “Building simple Neural Networks using PyTorch (NN, CNN) for MNIST dataset”,
+https://medium.com/@bpoyeka1/building-simple-neural-networks-nn-cnn-using-pytorch-
+for-mnist-dataset-31e459d17788
