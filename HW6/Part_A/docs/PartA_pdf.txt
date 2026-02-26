@@ -1,0 +1,31 @@
+Homework 06 – ICA – Part A 
+Binary Classification Metrics 
+Overview 
+In this homework, we aim to evaluate the performance of a binary classification model. 
+Description 
+We want to use transfer learning with a pre-trained ResNet50 CNN model trained on the ImageNet 
+dataset [1] (spanning 1,000 object  classes and containing 1,281,167 training  images) to classify 
+images of horses and camels using the dataset provided in [2]. More specifically, fine-tuning refers 
+to the practice of "unfreezing" a few of the top layers of a frozen model base and jointly training 
+both  the  newly  added  classifier  layers  and  the  base  model's  last  layers.  This  allows  us  to  "fine-
+tune" the higher-order feature representations in the base model to make them more relevant for 
+the specific task that we retrain our model to perform. Note: the link to the notebook on training a 
+CNN from scratch with Keras is in the Reading sheet (R6). 
+Tasks 
+• Part A (Submission deadline by the end of the class): 
+o Import a ResNet50 model (10 points) 
+o Make sure the model is initialized with the ImageNet Weights (10 points) 
+ 
+Submission Guidelines 
+1. Upload the notebook file and a pdf copy of it in Teams. 
+ 
+References 
+1. “ImageNet Dataset”, 
+ https://www.image-net.org/download.php  
+2. “Horses vs Camels Dataset”, 
+https://www.kaggle.com/akrsnv/horses-and-camels  
+3. "Transfer learning and fine-tuning with Tensorflow", 
+https://www.tensorflow.org/tutorials/images/transfer_learning  
+4. "Transfer learning and fine-tuning with Keras", 
+https://keras.io/guides/transfer_learning/ 
+ 
