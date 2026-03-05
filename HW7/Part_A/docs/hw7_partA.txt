@@ -1,0 +1,76 @@
+
+HW 07 ICA Part A  
+Building a multimodal AI Chatbot Agent with Intent Understanding, Memory, Web 
+Search, and Visual Analysis 
+In  this  assignment,  you  will  design  and  implement  a  Python-based  AI  chatbot  that  uses  open-weight 
+language and vision models through Ollama and LangChain. 
+Your chatbot should: 
+● Use Mistral (LLM) for conversation and reasoning 
+● Use LLaVA (VLM) for image understanding 
+● Detect user intent before performing any action 
+● Maintain short-term conversational memory (within a single chat session) and persistent long-
+term memory across sessions using text embeddings 
+● Know the current time and date through a hidden system prompt 
+● Search the web when information is not available in memory 
+● Handle camera access and perform image analysis using the VLM 
+Part A — Models, Tools, and Intent Understanding 
+A1. Models and Platform 
+● Use Ollama to run open-weight models locally: 
+○ Mistral — Large Language Model (LLM) for text-based reasoning and dialogue 
+○ LLaVA — Vision-Language Model (VLM) for image interpretation and analysis 
+● Use LangChain to control Ollama through Python. 
+● Users must be able to chat with the chatbot directly through the system command line, 
+entering text prompts and viewing responses in the console. 
+A2. Intent Understanding 
+Develop an intent detection system that identifies the purpose of each user message before any other 
+operation is performed. The chatbot must classify every user prompt into one or more of the following 
+intent categories: 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Additional Requirements 
+● The chatbot must determine intent before calling any tool or function. 
+● For each user message, a hidden system prompt must be appended that includes the current 
+date and time, invisible to the user but available to the LLM for reasoning. 
+● A policy table must map each detected intent to the appropriate system behavior or tool (to be 
+implemented in Part B). 
+A3. Evaluation 
+● Test the intent classifier on a small labeled dataset (20 examples). 
+● Provide summary metrics such as intent classification accuracy and include a confusion matrix. 
+● Assume that user input prompts are single intent only  
+Submission Guidelines   
+1. Submit your working code (.py or .ipynb files)   
+2. Upload any .zip file or folder if your code refers to the paths of those files.   
+3. Make sure you include any datasets and annotations you created for your submission.  
+3. A PDF of your report with your output and comments.   
+ 
+ 
+ 
+Intent Description 
+chat General conversation or reasoning task 
+ask_time Questions about the current date or time 
+memory_write (Long-Term) Requests to remember or store information in 
+persistent long-term memory 
+memory_read (Long-Term) Requests to recall information previously stored in 
+long-term memory 
+web_search Requests to find or verify information online 
+camera_request Requests to analyze a photo or use the webcam 
+image_analysis_provided User provides an image for analysis 
+ 
+ Grading   
+1. Code documentation and readability (10%): A brief documentation, describing the most 
+important tasks of each class/module in the source code in your own words. Use of 
+comments, proper indentation, clear notations, and simplicity.   
+2. Code completeness (80%): Working code with no errors as Python scripts or Jupyter 
+Notebook. Including instructions for running your code.   
+3. Report (10%)   
+  
+References:   
+1. https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2 
+2. https://github.com/facebookresearch/faiss 
+ 
