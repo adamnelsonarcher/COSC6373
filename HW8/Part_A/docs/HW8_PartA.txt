@@ -1,0 +1,24 @@
+Homework 08 – Part A 
+Anomaly Detection using Autoencoders 
+ 
+ 
+Description 
+In this assignment, you will  use Convolutional Autoencoders to detect anomalies in  images. 
+For  the  purposes  of  this  assignment,  you  will  use  the  Flowers  Recognition  dataset  [1].  The 
+dataset contains 4,242 images across five flower categories: daisy, dandelion, rose, sunflower, 
+and tulip.  
+ 
+Part A (Submission deadline by the end of the class) 
+1. Create a Convolutional Autoencoder as described in this article [2]. 
+ 
+Submission Guidelines 
+Upload on Teams a pdf of your notebook along with the respective .ipynb files (HW08-
+PartA-Report-Lastname.pdf) 
+ 
+References 
+1. “Flowers Recognition dataset,” https://www.kaggle.com/datasets/alxmamaev/flowers-
+recognition?select=flowers  
+2. “Image Anomaly Detection / Novelty Detection Using Convolutional Auto Encoders 
+In Keras & Tensorflow 2.0,”https://medium.com/@judewells/image-anomaly-
+detection-novelty-detection-using- convolutional-auto-encoders-in-keras-
+1c31321c10f2 
