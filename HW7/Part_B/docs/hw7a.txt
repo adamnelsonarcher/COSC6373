@@ -1,0 +1,76 @@
+
+
+
+
+
+
+of ⁨3⁩
+
+
+
+
+HW 07 Part B
+Building a multimodal AI Chatbot Agent with Intent Understanding, Memory, Web
+Search, and Visual Analysis
+In this assignment, you will design and implement a Python-based AI chatbot that uses open-weight
+language and vision models through Ollama and LangChain.
+Your chatbot should:
+● Use Mistral (LLM) for conversation and reasoning
+● Use LLaVA (VLM) for image understanding
+● Detect user intent before performing any action
+● Maintain short-term conversational memory (within a single chat session) and persistent long-
+term memory across sessions using text embeddings
+● Know the current time and date through a hidden system prompt
+● Search the web when information is not available in memory
+● Handle camera access and perform image analysis using the VLM
+Part B — Chatbot Controller, Memory, Web, and Vision Capabilities
+B1. System Controller
+Using the intents from Part A, implement a controller that determines which system components to
+activate.
+For every user message, the system must:
+1. Detect and label intent(s).
+2. Append the hidden time and date prompt to the LLM input.
+3. Select the correct function or tool based on the intent category.
+Knowledge and Answer Retrieval Rule
+Before answering any user question, the LLM must:
+● Check whether it already knows the answer based on its knowledge cutoff date and the current
+system date.
+● If the question refers to information newer than the model’s knowledge cutoff or is too
+specific, the chatbot should:
+1. Check long-term memory for relevant stored information.
+2. If not found, perform a web search and use the retrieved results to answer.
+Behavior by Intent
+● ask_time: Respond using the system clock.
+● memory_read / memory_write: Retrieve or store information using embeddings.
+● web_search: Trigger only after checking the knowledge cutoff date, long-term memory, and
+finding no relevant data.
+● camera_request / image_analysis_provided: Capture or analyze an image using LLaVA.
+B2. Short-Term Memory
+Short-term memory (session only)
+● Use LangChain ConversationBufferWindowMemory (e.g., last 5 turns).
+● Clears when the chat ends.
+B3. Long-Term Memory
+● Represent previous conversation history (should include both user prompts and chatbot answers)
+as text embeddings in case prompt intent is determined as memory_write.
+○ For generating embeddings vectors, use any of the following open model [1] via
+LangChain:
+● sentence-transformers/all-MiniLM-L6-v2
+● Store and retrieve embeddings using a vector index (use FAISS [2]).
+● Retrieve the most relevant past items (Top-k) and inject them into the LLM prompt before
+response generation.
+● When information is missing, the chatbot must first check long-term memory and only then
+perform a web search.
+B4. Time Awareness
+● Use the system clock to provide accurate responses to time- and date-related queries.
+● Ensure the hidden system prompt (current date and time) is always included in every LLM call,
+even if the user does not ask for it.
+B5. Web Search
+● Implement a simple web search utility for external queries.
+● The chatbot should:
+○ Indicate when it used web results.
+○ Summarize information clearly and concisely.
+○ Mention or cite data sources when applicable.
+● Web search should occur only after memory has been checked and found insufficient.
+B6. Camera and Visual Understanding
+● Detect when the user asks to use the camera or analyze an image.
+● Capture and analyze the image with LLaVA via Ollama.
