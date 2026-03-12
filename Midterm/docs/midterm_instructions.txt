@@ -1,0 +1,34 @@
+
+1
+
+Automatic Zoom
+COSC 6373 S2026 - PartB 
+Midterm Exam 
+Exam duration: 90 Minutes 
+First Name:  
+Last Name: 
+There are 2 Parts in the exam. 
+● Part B: Submit a Jupyter Notebook file and the pdf of your solution on Teams (Name: 
+Midterm-PartB-Firstname-Lastname.pdf) with your output and comments 
+Important: You can use the Internet while working on Part B 
+  
+Part B: Use a Jupyter’s notebook for the following questions: 
+1. Calculate the unnormalized histograms of an image’s red, green, and blue channels and plot 
+them using Matplotlib. Use any image you want from the internet. (25 points) 
+2. Use a ResNet-50 CNN model pre-trained with ImageNet to perform classification for recognizing 
+images of horses and camels using the dataset provided in 
+https://www.kaggle.com/datasets/akrsnv/horses-and-camels 
+○ The dataset contains a training set and a test set 
+i. Form a validation set using 20 images from the training set (IMPORTANT: these 
+images should be no longer included in the training set) - 5 points 
+○ Add a layer to perform binary classification – 3 points 
+○ Train the model using fine-tuning – 6 points 
+○ Report the accuracy for both the validation and test sets – 4 points  
+○ Plot the confusion matrix for both the validation and test sets – 4 points 
+○ Use a Loss/Epochs plot to compare the training and validation losses. Explain if 
+overfitting took place during training or not – 3 points 
+○ Note: You can use any deep learning framework to work on this question 
+  
+  
+  
+ 
