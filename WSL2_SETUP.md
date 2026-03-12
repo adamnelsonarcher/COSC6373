@@ -359,7 +359,14 @@ If you prefer Jupyter from the terminal: in WSL, `cd` to the project, `source .v
 
 - **No GPU in TensorFlow**  
   - Run `nvidia-smi` on **Windows**; if it fails, update the NVIDIA driver.  
-  - In WSL, ensure you’re in the venv where you installed `tensorflow[and-cuda]` and run the GPU check again.
+  - In WSL, run `nvidia-smi`; if it works, the GPU is visible and the issue is TensorFlow’s environment.  
+  - Ensure you’re using the venv where you installed `tensorflow[and-cuda]` (correct kernel in the notebook).
+
+- **“Cannot dlopen some GPU libraries” / GPU not found even though nvidia-smi works**  
+  On WSL2, TensorFlow sometimes can’t find the CUDA/cuDNN libs bundled in the venv. This project’s `.venv/bin/activate` already adds those lib paths to `LD_LIBRARY_PATH` when you activate the venv (so terminals and `jupyter` from the CLI see the GPU).  
+  - **Notebook in Cursor:** Cursor starts the kernel without sourcing `activate`, so the kernel doesn’t get `LD_LIBRARY_PATH`. Run once with the venv activated:  
+    `./register_kernel_wsl_gpu.sh`  
+    Then in the notebook choose **Select Another Kernel → Python (COSC6373 GPU)**. That kernel is configured with the same `LD_LIBRARY_PATH` so TensorFlow can load the GPU.
 
 - **Kernel / Python mismatch**  
   In Cursor, select the kernel that points to the WSL venv Python (e.g. `~/COSC6373/.venv/bin/python`).
