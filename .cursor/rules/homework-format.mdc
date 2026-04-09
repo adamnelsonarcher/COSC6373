@@ -17,11 +17,15 @@ When creating or formatting Jupyter Notebooks for COSC 6373, adhere to the follo
 
 2. **File Naming**: Notebooks should be named using the format `HWXX-ICA-PartX_Adam_Nelson-Archer.ipynb` (for Part A/In-Class) or `HWXX-PartX_Adam_Nelson-Archer.ipynb` (for Part B).
 
-3. **Acknowledgment Cell**: The final cell in the notebook must be a Markdown cell acknowledging the use of an AI assistant:
+3. **Acknowledgment Cell**: The final cell in the notebook must be a Markdown cell acknowledging the use of an AI assistant. Something like this, or similar:
    ```markdown
    ## Acknowledgment
 
-   I used a coding assistant (Cursor) to help scaffold and organize this notebook.
+   I used a GPT-5.3-Codex to help scaffold and organize this notebook.
+
+   Gemini-3.1 was used to check the result and validate conformity with the assignment outline.
+
+   All observations and responses were written by me, Adam Nelson-Archer.
    ```
 
 4. **Code Structure**:
