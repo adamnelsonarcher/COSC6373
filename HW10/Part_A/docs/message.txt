@@ -1,0 +1,1 @@
+If the yolo v3 weights do not work from the provided URL please try the following https://github.com/qqwweee/keras-yolo3
