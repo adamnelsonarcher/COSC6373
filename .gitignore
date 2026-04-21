@@ -2,3 +2,5 @@
 .venv
 HW10/Part_A/yolov3.weights
 HW11/Part_A/vit_checkpoint.weights.h5
+HW11/Part_B/cnn_checkpoint.weights.h5
+HW11/Part_B/vit_checkpoint.weights.h5
