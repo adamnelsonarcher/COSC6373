@@ -12,7 +12,7 @@ When creating or formatting Jupyter Notebooks for COSC 6373, adhere to the follo
    ```markdown
    # HW[XX] Part [X] :: [Assignment Title]
 
-   COSC 6373 -- Adam Nelson-Archer, 2140122
+   COSC 6373 - Adam Nelson-Archer, 2140122
    ```
 
 2. **File Naming**: Notebooks should be named using the format `HWXX-ICA-PartX_Adam_Nelson-Archer.ipynb` (for Part A/In-Class) or `HWXX-PartX_Adam_Nelson-Archer.ipynb` (for Part B).
@@ -32,3 +32,7 @@ When creating or formatting Jupyter Notebooks for COSC 6373, adhere to the follo
    - Organize imports at the beginning.
    - Install packages in the first or second cell if needed (e.g., `!pip install ...`).
    - Use clear markdown explanations between code blocks.
+
+5. **Formatting Restrictions**:
+   - **No bold text**: Do not use `**bold**` text in markdown cells anywhere in the notebook.
+   - **No em dashes / en dashes**: Do not use em dashes (`—`), en dashes (`–`), or double hyphens (`--`) to simulate dashes. Use standard single hyphens (`-`) exclusively.
