@@ -1,0 +1,206 @@
+
+Search
+
+Get app
+Write
+Sign up
+
+Sign in
+
+
+
+Image Segmentation Using K-means Clustering Algorithm and Mean-Shift Clustering Algorithm
+Muhammet Bolat
+Muhammet Bolat
+
+Follow
+7 min read
+·
+Jun 30, 2020
+56
+
+
+1
+
+
+
+I’ll focus on the applications of K-means and Mean-shift algorithms on the image without deep diving into the mathematical algorithm. Because mathematical methods and formulas take a lot of time, so I don’t want you to be distracted and run away. I will mention practical machine learning methods. If you’re ready, let’s start.
+
+Here we import all the necessary Python libraries
+
+import numpy as np
+import pandas as pd
+import cv2
+import collections
+import seaborn as sns
+import matplotlib.pyplot as plt
+from skimage import filters
+from skimage import util
+from sklearn.preprocessing import MinMaxScalerfrom sklearn.cluster import KMeans
+from mpl_toolkits.mplot3d import Axes3D
+from sklearn.cluster import MeanShift, estimate_bandwidth
+import warnings
+warnings.filterwarnings("ignore")
+IMAGINE A SCENARIO
+
+
+Unmanned Aerial Vehicle
+I want you to imagine a scenario to explain in which areas these algorithms are used. I believe that you can grasp the methods in a more motivated way by imagining.
+
+Let’s imagine that unmanned aerial vehicle which you can see above is trying to find the landing area. The data comes from a camera which has some many frames. I uploaded one of them to apply algorithm. We’ll play this image which you can also see above using K-Means and Mean-Shift clustering algorithm.
+
+imageName = 'UAV_image.jpg'
+image = plt.imread(imageName)
+plt.figure(dpi=150)
+plt.title('Unmanned Aerial Vehicle')
+plt.imshow(image)
+Press enter or click to view image in full size
+
+It was taken from the unmanned aerial vehicle.
+imageName = 'UAV_image.jpg'
+image = plt.imread(imageName)
+plt.figure(dpi=150)
+plt.title('Unmanned Aerial Vehicle')
+plt.imshow(image)
+K-MEANS CLUSTERING
+
+K-means clustering is one of the simplest unsupervised algorithm which means that we don’t have any labeled data. So, the first thing is that we need to decide how many cluster we should select for the best performance. There are lots of method to choose optimum cluster number. The best famous algorithms are Elbow and Silhouette. I’ll be using Elbow algorithm.
+
+Normally, we have RGB pixels as feature vectors. The vector has 3 color space which is red, green and blue. I’ll be showing you different kind of feature vector.
+
+df_1 : Vector which have RGB pixel values and their location on the image.
+
+index = pd.MultiIndex.from_product(
+    (*map(range, image.shape[:2]), ('r', 'g', 'b')),
+    names=('row', 'col', None))
+df_1 = pd.Series(image.flatten(), index=index)
+df_1 = df_1.unstack()
+df_1 = df_1.reset_index().reindex(columns=['col','row',   'r','g','b'])
+df_1.head(10)
+Press enter or click to view image in full size
+
+df_2: Vector which have only image RGB pixels.
+
+df_2 = df_1[[‘r’, ‘g’, ‘b’]]
+df_2.head(10)
+Press enter or click to view image in full size
+
+Normalize Pixels to 0–1
+Pixels are to set between 0–255 and locations are 0–300 and 0–400. These values are quite different for us. Image we have 5 dimension space. We must use euclidean distance of two feaute vector. That means locations have higher effect on the result. Because of this problem, we should set all the values between 0–1.
+
+There two ways to normalize data points. Firstly, you can write your own method or else you can use sklearn.preprocessing.MinMaxScaler class to normalize vectors.
+
+→ Manuel Normalize
+
+nd_1 = df_1.values.astype(np.float32)
+nd_1[:, 0] = nd_1[:, 0] / (nd_1[:, 0].max() + 1)
+nd_1[:, 1] = nd_1[:, 1] / (nd_1[:, 1].max() + 1)
+nd_1[:, 2:] = nd_1[:, 2:] / 255
+nd_2 = df_2.astype(np.float64) / 255
+→ Sklearn.Preprocessing.MinMaxScaler Normalize (Recommended)
+
+nd_1 = MinMaxScaler(feature_range=(0, 1)).fit_transform(df_1)
+nd_2 = MinMaxScaler(feature_range=(0, 1)).fit_transform(df_2)
+Elbow Method (Optimum Cluster Number Selection)
+
+So far so good. This is the time to ask yourself that what is optimum cluster number? That’s pretty unsupervised learning issue.
+
+Imagine that you have a dataset which set for women and men based on salary, residence, their political ideas and so on. But there is no gender information in this data set. It is forgetten to add by pollster, only their names are available. In this case, you can create a model by learning the distribution of women and men. In this senario, the number of cluster is clear, man or woman. Thumbs up!!!
+
+But what if we don’t know exactly? Don’t worry. There are methods to find the optimum one. The answer is elbow method.
+
+Get Muhammet Bolat’s stories in your inbox
+Join Medium for free to get updates from this writer.
+
+Enter your email
+Subscribe
+
+Remember me for faster sign in
+
+The idea of the elbow method is to run k-means clustering on the dataset for a range of values of k (say, k from 1 to 10), and for each value of k calculate the sum of inertieas. Then, plot a line chart of total inertias for each value of k. If the line chart looks like an arm, then the “elbow” on the arm is the value of k that is the best.
+
+total_inertias_1 = [KMeans(n_clusters=i).fit(nd_1).inertia_ for i in range(1, 20)]
+total_inertias_2 = [KMeans(n_clusters=i).fit(nd_2).inertia_ for i in range(1, 20)]
+import matplotlib.pyplot as plt
+fig, (ax1, ax2) = plt.subplots(1, 2, sharex='col', sharey='row', figsize=(30,10))
+ax1.plot(range(1, 20), total_inertias_1, c='black')
+ax1.set(xlabel='Total Inertias', ylabel='Number of Clusters', title='RGB Pixels with locations')
+ax2.plot(range(1, 20), total_inertias_2, c='black')
+ax2.set(xlabel='Total Inertias', title='RGB Pixels without locations');
+plt.savefig('elbow_result.jpg')
+As you can see below results, I decided to choose 5 for thr first and 3 for the second. It is hard to distinguish the elbow part for the first part because graphic descends very smoothly. So we make our choice intuitively. The second one is more clear.
+
+Press enter or click to view image in full size
+
+Press enter or click to view image in full size
+
+Press enter or click to view image in full size
+
+Press enter or click to view image in full size
+
+Looking the outputs in detail, clustering is better done in the 1st output, where we add the position of the pixels. Especially green areas are included in a single group as they close to each other on spatial domain.
+The path was markedly segmentation in both outputs.
+
+MEAN-SHIFT CLUSTERING
+
+Mean-Shift is another known unsupervised clustering algorithm. The algorithm assign the feature vectors to the clusters iteratively by shifting points towards the highest density of feature points in region.
+Mean-shift algorithm has so many fields. One of them are image processing and computer vision.
+
+Unlike K-Means cluster algorithm, mean-shift does not require specifying the number of cluster in advance. The number of clusters is determined by algorithm with respect to data. As you remind, I mentioned that there are some algorithms to detect K-means optimum cluster like Silhouette or Elbow methods.
+
+Kernel-Density Estimation
+The first step to apply mean shift algorithm is respresenting our data as point in spatial domain. Mean shift builds on kernel density estimation. Kernel density estimation estimate PDF(probability density function) for a set of data.
+It works by placing a kernel on each point in the data set. A kernel has a mathematical algorithm for weighting function generally user in convolution. There are many different kernels. But the most popular one is the Gaussian kernel. Gaussian kernel has a bandwith which is needed to start mean-shift algorithm. It is also called window.
+
+I know that you are bored with long explanation. Let’s dive into the practical machine learning section.
+
+Calculate the best bandwith which is specified by feature vector.
+There is a known python class which calculate gaussian kernel depending on data. Class is called as estimate_bandwidth.
+
+bandwidth_1 = estimate_bandwidth(nd_1, quantile=.04, n_jobs=-1)
+bandwidth_2 = estimate_bandwidth(nd_2, quantile=.04, n_jobs=-1);
+Bandwitdths are calculated as 3 and 5, respectively. calculated that 0.13559591178830535 and 0.034407035660636826.
+
+That’s really hard to understand the optimum cluster number. We’ll put them into MeanShift method.
+
+Clustering
+I’ll be using already exist method under the sklearn.cluster package. I’d like to inform you before starting. n_job=-1 means that use all process which your computer has. You can hear the sound of your computers. Don’t worry. If you have a lot of applications running in parallel, you can set this parameter value to 1. I am warning again at the beginning, this takes a lot of time.
+
+cluster_all parameter can be set False. That means that if the dataset have noise depends on clusters, these point never assing values. That properties is quite useful if you want to eleminate anomally of the image.
+
+bin_seeding makes to speep up your clustering algorihm on backend.
+
+ms_1 = MeanShift(bandwidth = bandwidth_1 , n_jobs=-1, bin_seeding=True, cluster_all=True).fit(nd_1)
+ms_2 = MeanShift(bandwidth = bandwidth_2 , n_jobs=-1, bin_seeding=True, cluster_all=True).fit(nd_2)
+Showing the final images.
+plt.figure(1)
+plt.clf()
+plt.axis(‘off’)
+plt.title(‘Original image’, loc=’center’)
+plt.imshow(image)
+plt.figure(2)
+plt.clf()
+plt.axis(‘off’)
+plt.title(‘Pixels with their location image ({} colors, Mean-Shift)’.format(len(ms_1.cluster_centers_)), loc=’center’)
+plt.imshow(recreate_image(ms_1.cluster_centers_[:, 2:], ms_1.labels_, width, height));
+plt.figure(3)
+plt.clf()
+plt.axis(‘off’)
+plt.title(‘Pixels without their location ({} colors, Mean-Shift)’.format(len(ms_2.cluster_centers_)), loc=’center’)
+plt.imshow(recreate_image(ms_2.cluster_centers_, ms_2.labels_, width, height));
+Press enter or click to view image in full size
+
+Press enter or click to view image in full size
+
+The image with the location information actually made the clustering process that we wanted. Here, the unmanned aerial vehicle can clearly see the way it will land and distinguish the objects on this road. Thums up !!!
+
+Press enter or click to view image in full size
+
+The clustering process without location information is divided into too many clusters because it only use the color space as feature vector. Here, roads, car and lines are clearly separated. However, the model in which we include location information as performance can work more effectively.
+
+Kmeans
+Mean Shift
+Clustering
+Unsupervised Learning
+Segmentation
+56
