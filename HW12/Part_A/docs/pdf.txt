@@ -1,0 +1,41 @@
+Homework 12 - ICA- Part A
+Image Segmentation
+Description
+In this assignment, you will apply the K-means algorithm and the Mean-Shift algorithm for
+unsupervised segmentation in images [1].
+Tasks
+The specific steps for this task are:
+Part A:
+1. Please detail the differences between unsupervised image segmentation methods and
+supervised semantic image segmentation methods
+2. Name well-known methods from each of the above categories
+3. Using a coloured image of your choice, apply the K-means algorithm and report the
+output using two different values of k (your choice).
+You must place the image in the root directory of your repository, and the code must
+be able to load the image.
+1. Using the elbow method, identify the optimal value of k and report your result. What
+do you notice?
+2. Using the same image as in 3, now apply the Mean-Shift clustering algorithm and
+report your results.
+3. Is image thresholding a form of unsupervised image segmentation?
+4. What are some differences between K-means and Mean-Shift?
+5. What are some of their limitations?
+Submission Guidelines
+ Submit your working code in Teams (both as an .ipynb and a .pdf file)
+ Upload any .zip file or folder if your code refers to the paths of those files.
+ A PDF of your report (name: HW12-ICA-PartA-Report-Lastname.pdf) with
+your output and comments
+References
+[1] “Image Segmentation using K-means Clustering Algorithm and Mean-Shift Clustering
+Algorithm”,
+https://medium.com/@muhammetbolat/image-segmentation-using-k-means-clustering-
+algorithm-and-mean-shift-clustering-algorithm-fb6ebe4cb761
+[2] “Image Thresholding” https://docs.opencv.org/3.4/d7/dd0/tutorial_js_thresholding.html
+[3] “Contour Detection using OpenCV (Python/C++)” https://learnopencv.com/contour-
+detection-using-opencv-python-c/#Steps-for-Finding-and-Drawing-Contours-in-OpenCV[4] “Semantic Segmentation using PyTorch”,
+https://debuggercafe.com/semantic-segmentation-using-pytorch-deeplabv3-and-lite-r-aspp-with-
+mobilenetv3-backbone/
+[5] “MODELS AND PRE-TRAINED WEIGHTS”, Pytorch
+https://pytorch.org/vision/stable/models.html
+[6] “Getting Started with Videos”, OpenCV
+https://docs.opencv.org/3.4/dd/d43/tutorial_py_video_display.html
